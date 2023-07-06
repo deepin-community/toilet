@@ -1,0 +1,24 @@
+From: Helmut Grohne <helmut@subdivi.de>
+Subject: remove PKG_CONFIG_LIBDIR override
+
+The pkg-config cross wrappers will do nothing when PKG_CONFIG_LIBDIR is set. By
+setting it to /dev/null, it will not find any package. Leaving it unset is what
+we need.
+
+Index: toilet-0.3/configure.ac
+===================================================================
+--- toilet-0.3.orig/configure.ac
++++ toilet-0.3/configure.ac
+@@ -18,12 +18,6 @@
+ AC_EGREP_CPP(yes, foo)
+ PKG_PROG_PKG_CONFIG()
+ 
+-dnl Don't let pkg-config fuck our cross-compilation environment
+-m4_pattern_allow([^PKG_CONFIG_LIBDIR$])
+-if test "$build" != "$host" -a "${PKG_CONFIG_LIBDIR}" = ""; then
+-  export PKG_CONFIG_LIBDIR=/dev/null
+-fi
+-
+ AC_CHECK_HEADERS(sys/ioctl.h)
+ 
+ AC_CACHE_CHECK([for TIOCGWINSZ],

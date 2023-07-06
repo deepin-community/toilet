@@ -1,5 +1,75 @@
-template-repository (1.0-1) unstable; urgency=medium
+toilet (0.3-1.4) unstable; urgency=medium
 
-  * Initial release
+  * Non-maintainer upload.
+  * Bump debhelper compat level to 13 (Closes: #965845)
+    - Use minimal dh debian/rules.
+    - Enables autoreconf by default (Closes: #876126)
+    - Drop autotools-dev Build-Depends, no longer explicitly needed.
+  * Patch: AM_INIT_AUTOMAKE([foreign]), required to autoreconf.
+  * Declare Rules-Requires-Root: no.
+  * Remove legacy Alioth Vcs fields.
+  * Bump Standards-Version to 4.6.0, no changes needed.
+  * Remove ancient figlet conflicts, no longer needed.
+  * Add a smoketest autopkgtest.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Stefano Rivera <stefanor@debian.org>  Sat, 25 Dec 2021 10:30:38 -0400
+
+toilet (0.3-1.3) unstable; urgency=medium
+
+  * Non maintainer upload by the Reproducible Builds team.
+  * No source change upload to rebuild on buildd with .buildinfo files.
+
+ -- Holger Levsen <holger@debian.org>  Fri, 01 Jan 2021 15:35:07 +0100
+
+toilet (0.3-1.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * use dh_autotools-dev to update config.sub.
+
+  [ Helmut Grohne]
+  * sets PKG_CONFIG_LIBDIR correct for cross building (Closes: #876126)
+
+ -- YunQiang Su <syq@debian.org>  Wed, 14 Mar 2018 12:44:09 +0800
+
+toilet (0.3-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix FTBFS when building only architeture-independent packages
+    (closes: #805961). Thanks to Santiago Vila for the bug report and the
+    patch.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 22 Aug 2016 21:05:36 +0200
+
+toilet (0.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * This release includes some ASCII-only fonts (Closes: #560334).
+  * debian/control: build-depend on libcaca 0.99.beta18 which fixes the
+    terminal width setting (Closes: #636939 ).
+
+ -- Sam Hocevar <sho@debian.org>  Fri, 06 Apr 2012 23:40:44 +0200
+
+toilet (0.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Set policy to 3.8.4.
+  * debian/source/format: Set format to 3.0 (quilt).
+
+ -- Sam Hocevar <sho@debian.org>  Tue, 09 Feb 2010 01:11:55 +0000
+
+toilet (0.1-2) unstable; urgency=high
+
+  * debian/control:
+    + Changed conflict to figlet (<= 2.2.1-4) so that toilet and figlet can
+      be installed together in Etch.
+    + Added Vcs fields.
+  * debian/rules:
+    + Fix a crash in filter.c triggered eg. by "echo | toilet -F rotate".
+
+ -- Sam Hocevar (Debian packages) <sam+deb@zoy.org>  Thu, 29 Mar 2007 00:33:29 +0200
+
+toilet (0.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #390037).
+
+ -- Sam Hocevar (Debian packages) <sam+deb@zoy.org>  Thu, 16 Nov 2006 03:32:10 +0100

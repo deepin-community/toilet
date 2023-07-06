@@ -1,0 +1,17 @@
+Author: Stefano Rivera <stefanor@debian.org>
+Description: Set foreign flag for automake
+ We don't have an AUTHORS file, don't expect one.
+ Removed package name and version from AM_INIT_AUTOMAKE call, this is
+ deprecated in favour of AC_INIT.
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -6,7 +6,7 @@
+ AC_CONFIG_AUX_DIR(.auto)
+ AC_CANONICAL_SYSTEM
+ 
+-AM_INIT_AUTOMAKE(toilet, 0.3)
++AM_INIT_AUTOMAKE([foreign])
+ AM_CONFIG_HEADER(config.h)
+ 
+ AM_PROG_CC_C_O

@@ -1,0 +1,2 @@
+no-set-pkg-config-libdir-to-null.patch
+automake-foreign.patch

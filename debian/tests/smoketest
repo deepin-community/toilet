@@ -1,0 +1,17 @@
+#!/bin/sh
+set -euf
+cd "$AUTOPKGTEST_TMP"
+
+cat >expected <<EOF
+
+ #             ""#    ""#
+ # mm    mmm     #      #     mmm
+ #"  #  #"  #    #      #    #" "#
+ #   #  #""""    #      #    #   #
+ #   #  "#mm"    "mm    "mm  "#m#"
+
+
+EOF
+
+toilet hello | sed -e 's/ *$//' > output
+diff -Naur expected output
